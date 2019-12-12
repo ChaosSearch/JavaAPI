@@ -1,0 +1,18 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+ 
+group = 'test.app'
+version = '0.1-SNAPSHOT'
+ 
+dependencies {
+  repositories {
+    mavenCentral()
+  }
+  compile 'com.amazonaws:aws-java-sdk-core:1.11.221'
+}
+
+task run(type: JavaExec, dependsOn: classes) {
+  main = 'AmazonElasticsearchServiceSample'
+  classpath sourceSets.main.runtimeClasspath
+  classpath configurations.runtime
+}
