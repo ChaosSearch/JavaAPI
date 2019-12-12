@@ -59,7 +59,7 @@ public class AmazonElasticsearchServiceSample extends Sample {
 
     private void queryCHAOS() throws IOException {
 
-String payload = "{\"index\":\"dev01-useast1_perflab-05101139_events\",\"ignore_unavailable\":true\"preference\":1574355817948}\n{\"version\":true,\"size\":500,"\"sort\":[{\"_score\":{\"order\":\"desc\"}}],\"_source\":{\"excludes\":[]},\"stored_fields\":[\"*\"],\"script_fields\":{}," +"\"docvalue_fields\":[{\"field\":\"created\",\"format\":\"date_time\"}],"query\":{\"bool\":{\"must\":[{\"query_string\":{\"query\":\"status:passed\",\"analyze_wildcard\":true,\"time_zone\":\"America/Chicago\"}}],\"filter\":[{\"match_all\":{}}],\"should\":[],\"must_not\":[]}},\"timeout\":\"30000ms\"}";
+String payload = "{\"index\":\"dev01-useast1_perflab-05101139_events\",\"ignore_unavailable\":true\"preference\":1574355817948}\n{\"version\":true,\"size\":500,"\"sort\":[{\"_score\":{\"order\":\"desc\"}}],\"_source\":{\"excludes\":[]},\"stored_fields\":[\"*\"],\"script_fields\":{}," +"\"docvalue_fields\":[{\"field\":\"created\",\"format\":\"date_time\"}],"query\":{\"bool\":{\"must\":[{\"query_string\":{\"query\":\"cs_method:GET\",\"analyze_wildcard\":true,\"time_zone\":\"America/Chicago\"}}],\"filter\":[{\"match_all\":{}}],\"should\":[],\"must_not\":[]}},\"timeout\":\"30000ms\"}";
 
 HttpPost httpPost = new HttpPost(AES_ENDPOINT );
         httpPost.setEntity(stringEntity(payload));
